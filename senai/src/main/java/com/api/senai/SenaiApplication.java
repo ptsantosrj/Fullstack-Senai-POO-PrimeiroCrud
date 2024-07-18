@@ -12,10 +12,65 @@ public class SenaiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SenaiApplication.class, args);
 
-		dividePorZero();
-
+		menu();
+		
 		System.out.println("Fim do programa.");
 
+	}
+
+	public static void menu() {
+		boolean repete = true;
+		
+		while(repete) {
+			System.out.println("Qual função deseja realizar? ");
+			System.out.println("1 - Dividir por zero");
+			System.out.println("2 - Listar nomes ");
+			System.out.println("3 - Sair");
+
+			Scanner sc = new Scanner(System.in);
+
+			try {
+				int opcao = sc.nextInt();
+				switch (opcao) {
+					case 1:
+						dividePorZero();
+						break;
+					case 2:
+						listarNomes();
+						break;
+					case 3:
+						repete = false;
+						System.out.println("Saindo do programa...");
+						break;
+					default:
+					System.out.println("Opção inválida. Digite um número entre 1 e 3.");
+					break;
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("Opção inválida. Digite um número inteiro.");
+				sc.next();
+			}
+		}
+	}
+
+	public static void listarNomes() {
+		String[] nomes = {"Lucas", "Enzo", "Eloisa"};
+		for (int i=0; i < nomes.length; i++) {
+			System.out.println( (i+1) + "- " + nomes[i]);
+		}
+
+		System.out.println("Escolha um nome da lista: ");
+		Scanner sc = new Scanner(System.in);
+		try {
+			int opcao = sc.nextInt();
+			opcao--;
+			System.out.println("O nome escolhido foi: " + nomes[opcao]);
+		} catch (InputMismatchException e) {
+			System.out.println("Opção inválida. Digite um número inteiro.");
+			sc.next();
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("Opção inválida. Digite um número entre 1 e " + nomes.length);
+		}
 	}
 
 	public static void dividePorZero(){
