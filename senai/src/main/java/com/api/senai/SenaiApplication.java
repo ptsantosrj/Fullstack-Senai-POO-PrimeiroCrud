@@ -34,11 +34,9 @@ public class SenaiApplication {
 
 			// Dispara um erro caso o divisor informado seja 0
 			+ (numero / divisor));
-			
-		} catch (ArithmeticException e) {
-			System.out.println("Não é possível dividir por zero.");
-		} catch (InputMismatchException e) {
-			System.out.println("Divisor informado inválido.");
+
+		} catch (Exception e) {
+			System.out.println("Erro! " + e.getMessage());
 		}
 	}
 }
