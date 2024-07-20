@@ -65,9 +65,6 @@ public class SenaiApplication {
 		Scanner sc = new Scanner(System.in);
 		String cep = sc.nextLine();
 
-		// Consumir ViaCep
-		// Faz alguma coisa que retorna:
-
 		Endereco endereco = Endereco.getEnderecoByCep(cep);
 
 		System.out.println("Endereço encontrado: ");

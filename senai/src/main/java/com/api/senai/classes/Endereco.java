@@ -28,13 +28,10 @@ public class Endereco {
         url(url).
         build();
 
-        System.out.println("\n" + request + "\n\n");
-
         try {
             Response response = client.newCall(request).execute();
             if (response.isSuccessful() && response.body() != null){
                 String result = response.body().string();
-                System.out.println(result);
 
                 // Mapper
                 Gson gson = new Gson();
