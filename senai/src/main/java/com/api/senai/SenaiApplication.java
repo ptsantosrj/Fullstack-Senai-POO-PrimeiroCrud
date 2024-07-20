@@ -6,6 +6,8 @@ import java.util.Scanner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.api.senai.classes.Endereco;
+
 @SpringBootApplication
 public class SenaiApplication {
 
@@ -25,7 +27,8 @@ public class SenaiApplication {
 			System.out.println("Qual função deseja realizar? ");
 			System.out.println("1 - Dividir por zero");
 			System.out.println("2 - Listar nomes ");
-			System.out.println("3 - Sair");
+			System.out.println("3 - Perguntar endereco ");
+			System.out.println("4 - Sair");
 
 			Scanner sc = new Scanner(System.in);
 
@@ -39,8 +42,11 @@ public class SenaiApplication {
 						listarNomes();
 						break;
 					case 3:
-						repete = false;
+						perguntaEndereco();
+						break;
+					case 4:
 						System.out.println("Saindo do programa...");
+						repete = false;
 						break;
 					default:
 					System.out.println("Opção inválida. Digite um número entre 1 e 3.");
@@ -51,6 +57,28 @@ public class SenaiApplication {
 				sc.next();
 			}
 		}
+	}
+
+	public static void perguntaEndereco() {
+		
+		System.out.println("Digite o CEP: ");
+		Scanner sc = new Scanner(System.in);
+		String cep = sc.nextLine();
+
+		// Consumir ViaCep
+		// Faz alguma coisa que retorna:
+
+		Endereco endereco = Endereco.getEnderecoByCep(cep);
+
+		System.out.println("Endereço encontrado: ");
+		System.out.println("CEP: " + cep);
+		System.out.println("Logradouro: " + endereco.getLogradouro());
+		System.out.println("Bairro: " + endereco.getBairro());
+		System.out.println("Cidade: " + endereco.getLocalidade());
+		System.out.println("Estado: " + endereco.getUf());
+		System.out.println("Complemento: " + endereco.getComplemento());
+
+
 	}
 
 	public static void listarNomes() {
