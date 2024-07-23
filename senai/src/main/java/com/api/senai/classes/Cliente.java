@@ -1,9 +1,12 @@
 package com.api.senai.classes;
 
+import java.util.ArrayList;
+
 import lombok.Data;
 
 @Data
 public class Cliente {
+    public static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 
     private String nome;
     private String cpf;
