@@ -1,4 +1,4 @@
-package com.api.senai.controllers;
+package com.api.senai.controller;
 
 import org.springframework.web.bind.annotation.*;
 
